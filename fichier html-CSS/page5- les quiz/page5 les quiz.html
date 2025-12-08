@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçon : Quiz en HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon : Créer un Quiz en HTML</h1>
+
+    <h2>1) Structure de base</h2>
+    <p>Un quiz utilise un formulaire (<code>&lt;form&gt;</code>) et des questions avec des boutons radio (<code>&lt;input type="radio"&gt;</code>).</p>
+
+    <pre>
+&lt;form id="quizForm"&gt;
+  &lt;div class="question"&gt;
+    &lt;p&gt;1. Exemple de question ?&lt;/p&gt;
+    &lt;label&gt;&lt;input type="radio" name="q1" value="wrong"&gt; Mauvaise réponse&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type="radio" name="q1" value="correct"&gt; Bonne réponse&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type="button" onclick="checkAnswers()"&gt;Voir mon score&lt;/button&gt;
+&lt;/form&gt;
+    </pre>
+
+    <h2>2) Ajouter plusieurs questions</h2>
+    <p>Chaque question est dans un <code>&lt;div class="question"&gt;</code> et possède un nom unique (<code>name="q1"</code>).</p>
+
+    <pre>
+&lt;div class="question"&gt;
+  &lt;p&gt;2. Type de question ouverte ?&lt;/p&gt;
+  &lt;label&gt;&lt;input type="radio" name="q2" value="wrong"&gt; QCM&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="radio" name="q2" value="correct"&gt; Question ouverte&lt;/label&gt;
+&lt;/div&gt;
+    </pre>
+
+    <h2>3) Calculer le score</h2>
+    <p>Le score se calcule en JavaScript en vérifiant quelles réponses sont correctes :</p>
+
+    <pre>
+function checkAnswers() {
+  const form = document.getElementById('quizForm');
+  const result = document.getElementById('result');
+  let score = 0;
+
+  if (form.q1.value === "correct") score++;
+  if (form.q2.value === "correct") score++;
+
+  result.textContent = `Ton score est de ${score} sur 2 !`;
+}
+    </pre>
+
+    <h2>4) Exemple interactif</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Quel type de question laisse l’utilisateur répondre avec ses propres mots ?</p>
+        <label><input type="radio" name="q1" value="wrong"> QCM</label><br>
+        <label><input type="radio" name="q1" value="correct"> Question ouverte</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Échelle</label>
+      </div>
+      <div class="question">
+        <p>2. Quel type de question permet de choisir parmi des réponses prédéfinies ?</p>
+        <label><input type="radio" name="q2" value="correct"> Question fermée</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Question ouverte</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Texte libre</label>
+      </div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <h2>5) Résumé</h2>
+    <ul>
+      <li>Chaque question est dans un <code>&lt;div class="question"&gt;</code>.</li>
+      <li>Chaque question a un nom unique (<code>name="q1"</code>).</li>
+      <li>Marquer les réponses correctes avec <code>value="correct"</code>.</li>
+      <li>Utiliser JavaScript pour calculer le score et l’afficher.</li>
+      <li>CSS permet de rendre le quiz joli et lisible.</li>
+    </ul>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.

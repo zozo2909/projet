@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçon html utilitaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #004080;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .exemple {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Leçon html les utilitaire</h1>
+
+  <section>
+    <h2>1. Les images</h2>
+    <p>Pour afficher une image, on utilise la balise :</p>
+    <pre><code>&lt;img src="chemin d'accés pour l'image"&gt;</code></pre>
+    <p><strong>Explications :</strong></p>
+    <ul>
+      <li><code>src</code> indique le chemin d'accés de l'image.</li>
+      <li><code>alt</code> décrit l’image (utile si elle ne s’affiche pas).</li>
+    </ul>
+    <p>Exemple :</p>
+    <div class="exemple">
+      <img src="\PROJETS\site wed\image\salle serveur.jpeg" alt= "une salle serveur" width="200">
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Les liens</h2>
+    <p>cette ballise permet de envoiler les utilisateurs qui cliquent sur le texte qui les enverra sur un autre site </p>
+    <pre><code>&lt;a href="le lien de votre choix"&gt;"le texte de votre choix"&lt;/a&gt;</code></pre>
+    <p><strong>Explications :</strong></p>
+    <ul>
+      <li><code>a</code> signifie "ancre" il est là pour contenir le lien.</li>
+      <li><code>href</code> permet d'éxécuter le lien.</li>l
+    </u>
+    <p>Exemples :</p>
+    <div class="exemple">
+      <a href="https://google.com">cliquer pour aller sur Google</a><br>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Les boutons</h2>
+    <p>Les boutons servent à faire une action sur la page.</p>
+    <pre><code>&lt;button&gt;Clique ici&lt;/button&gt;</code></pre>
+    <p>Exemple avec une petite action :</p>
+    <pre><code>&lt;button onclick="alert('je suis un bouton')"&gt;bouton&lt;/button&gt;</code></pre>
+    <div class="exemple">
+      <button onclick="alert('je suis un bouton')">bouton</button>
+    </div>
+    <p><strong>Différence entre un lien et un bouton :</strong></p>
+    <ul>
+      <li>Un lien sert à vous envoyer sur un autre site.</li>
+      <li>Un bouton sert à effectuer une action qui peut ouvrir un fichier, envoyer sur internet, contacter une personne.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Exemple complet</h2>
+    <p>Voici une petite page avec les trois éléments que vous pouvez tester ou modifier selon vos désirs</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemple HTML simple&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bienvenue&lt;/h1&gt;
+
+    &lt;h2&gt;1. Une image&lt;/h2&gt;
+    &lt;img src="chemmin d'accés de votre image" alt=" non que vous voulez donner à votre image" width="300"&gt;
+
+    &lt;h2&gt;2. Un lien&lt;/h2&gt;
+    &lt;a href="https://google.com" target="_blank"&gt;cliqué pour aller sur Google&lt;/a&gt;
+
+    &lt;h2&gt;3. Un bouton&lt;/h2&gt;
+    &lt;button onclick="alert('je suis un bouton')"&gt;un bouton&lt;/button&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </section>
+
+</body>
+</html>

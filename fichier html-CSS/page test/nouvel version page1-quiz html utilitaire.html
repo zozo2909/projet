@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leçon2 Leçon html les utilitaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .correct {
+      background-color: #c8e6c9;
+    }
+    .incorrect {
+      background-color: #ffcdd2;
+    }
+    .textarea-correct {
+      background-color: #c8e6c9;
+    }
+    .textarea-incorrect {
+      background-color: #ffcdd2;
+    }
+    .bonne-reponse {
+      margin-top: 10px;
+      font-style: italic;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>leçon 2 html les utilitaires</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. </p>
+        <label><input type="radio" name="q1" value="wrong"> : </label><br>
+        <label><input type="radio" name="q1" value="wrong"> : </label><br>
+        <label><input type="radio" name="q1" value="correct"> : </label>
+      </div>
+      <div class="question">
+        <p>2.</p>
+        <label><input type="radio" name="q2" value="wrong"> : </label><br>
+        <label><input type="radio" name="q2" value="correct"> : </label><br>
+        <label><input type="radio" name="q2" value="correct"> : </label>
+      </div>
+      <div class="question">
+        <p>3.</p>
+        <label><input type="radio" name="q3" value="correct"> : </label><br>
+        <label><input type="radio" name="q3" value="wrong"> : </label><br>
+        <label><input type="radio" name="q3" value="wrong"> : </label><br>
+      </div>
+   <div class="question">
+        <p>4.</p>
+        <label><input type="radio" name="q4" value="wrong"> : </label><br>
+        <label><input type="radio" name="q4" value="wrong"> : </label><br>
+        <label><input type="radio" name="q4" value="correct"> : </label><br>
+      </div>
+      <div class="question">
+        <p>5. </p>
+        <label><input type="radio" name="q5" value="correct"> : </label><br>
+        <label><input type="radio" name="q5" value="wrong"> : </label><br>
+        <label><input type="radio" name="q5" value="correct"> : </label><br>
+      <button type="button" onclick="checkAnswers()">obtenir mon score</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      const bonneReponse = document.getElementById('bonneReponse');
+      let score = 0;
+
+      
+      const labels = form.querySelectorAll('label');
+      labels.forEach(label => {
+        label.classList.remove('correct', 'incorrect');
+      });
+      const textarea = document.getElementById('remarque');
+      textarea.classList.remove('textarea-correct', 'textarea-incorrect');
+
+      
+      if (form.q1.value === "correct") score++;
+      if (form.q2.value === "correct") score++;
+      if (form.q3.value === "correct") score++;
+      if (form.q4.value === "correct") score++;
+      if (form.q5.value === "correct") score++;
+
+      for (let i = 1; i <= 5; i++) {
+        const radios = form.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          const label = radio.parentElement;
+          if (radio.checked) {
+            if (radio.value === "correct") {
+              label.classList.add('correct');
+            } else {
+              label.classList.add('incorrect');
+            }
+          }
+        });
+      }
+      result.innerHTML = `Votre score est : ${score}/5
+  </script>
+</body>
+</html>

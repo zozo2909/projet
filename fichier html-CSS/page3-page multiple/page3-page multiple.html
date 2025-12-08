@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçon HTML Pages et Images-Boutons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #004080;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .exemple {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Leçon HTML : les onglets et les redirections</h1>
+
+  <section>
+    <h2>1. Créer plusieurs pages</h2>
+    <p>Chaque page de ton site est un fichier HTML :</p>
+    <pre><code>login.html
+home.html
+page1.html</code></pre>
+    <p>Pour naviguer entre les pages, on utilise le code :</p>
+    <pre><code>&lt;a href="(chemin d'accès du fichier)"title="Aller à l'accueil"></code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Transformer une image en bouton</h2>
+    <p>Pour qu’une image devienne cliquable :</p>
+    <pre><code>&lt;a href="contact.html"&gt;
+  &lt;img src="mon-bouton.png" alt="Contact" width="150"&gt;
+&lt;/a&gt;</code></pre>
+    <p>Exemple :</p>
+    <div class="exemple">
+      <a href="\PROJETS\site wed\fichier html-CSS\page0-home.html">
+        <img src="\PROJETS\site wed\image\home.png"alt="Aller à l'accueil">
+      </a>
+    </div>
+    <p>Tu peux ajouter un effet au survol :</p>
+    <pre><code>img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}</code></pre>
+    <style>
+      img:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    </style>
+  </section>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leçon2 Leçon html les utilitaire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .correct {
+      background-color: #c8e6c9;
+    }
+    .incorrect {
+      background-color: #ffcdd2;
+    }
+    .textarea-correct {
+      background-color: #c8e6c9;
+    }
+    .textarea-incorrect {
+      background-color: #ffcdd2;
+    }
+    .bonne-reponse {
+      margin-top: 10px;
+      font-style: italic;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>leçon 2 html les utilitaires</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Quelle balise doit étre utilisée pour décrire l'image ?</p>
+        <label><input type="radio" name="q1" value="wrong"> src </label><br>
+        <label><input type="radio" name="q1" value="wrong"> png </label><br>
+        <label><input type="radio" name="q1" value="correct"> alt </label>
+      </div>
+      <div class="question">
+        <p>2.Quelle balise sert à inclure un lien dans la page ?</p>
+        <label><input type="radio" name="q2" value="wrong"> href </label><br>
+        <label><input type="radio" name="q2" value="correct"> &lt;a&gt; </label><br>
+        <label><input type="radio" name="q2" value="correct"> link </label>
+      </div>
+      <div class="question">
+        <p>3. &Aacute; quoi sert un bouton ?</p>
+        <label><input type="radio" name="q3" value="correct">à faire une action sur une page</label><br>
+        <label><input type="radio" name="q3" value="wrong">à déclencher la bombe nucléaire</label><br>
+        <label><input type="radio" name="q3" value="wrong">à allumer la lumiére</label><br>
+      </div>
+   <div class="question">
+        <p>4.Quelle est l'erreur:&lt;a href="https://google.com" target="_blank">Aller sur Google&lt;/a&gt;</p>
+        <label><input type="radio" name="q5" value="wrong">le premier "a" devrait ressembler à ça: &lt;a&gt;</label><br>
+        <label><input type="radio" name="q5" value="wrong">href n'est pas au bon endroit</label><br>
+        <label><input type="radio" name="q5" value="wrong">le dernier "a" devrait ressembler à ça &lt;a&gt; et non à ça &lt;/a&gt;</label><br>
+        <label><input type="radio" name="q5" value="correct">il n'y a pas d'erreur</label><br>
+      </div>
+      <div class="question">
+        <p>5. Compléter le code: &lt;button onclick="alert('je suis un bouton')">un bouton&lt ici &gt;&lt;/p&gt;
+        <label for="remarque"></label><br>
+        <textarea id="remarque" name="q6" rows="4" cols="50" placeholder=""></textarea>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">obtenir mon score</button>
+    </form>
+    <div class="result" id="result"></div>
+    <div class="bonne-reponse" id="bonneReponse"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      const bonneReponse = document.getElementById('bonneReponse');
+      let score = 0;
+
+      
+      const labels = form.querySelectorAll('label');
+      labels.forEach(label => {
+        label.classList.remove('correct', 'incorrect');
+      });
+      const textarea = document.getElementById('remarque');
+      textarea.classList.remove('textarea-correct', 'textarea-incorrect');
+
+      
+      if (form.q1.value === "correct") score++;
+      if (form.q2.value === "correct") score++;
+      if (form.q3.value === "correct") score++;
+      if (form.q4.value === "correct") score++;
+      if (form.q5.value === "correct") score++;
+
+      for (let i = 1; i <= 5; i++) {
+        const radios = form.querySelectorAll(`input[name="q${i}"]`);
+        radios.forEach(radio => {
+          const label = radio.parentElement;
+          if (radio.checked) {
+            if (radio.value === "correct") {
+              label.classList.add('correct');
+            } else {
+              label.classList.add('incorrect');
+            }
+          }
+        });
+      }
+
+      
+      const bonneReponseQ6 = " /button "; 
+      const reponseUtilisateurQ6 = form.q6.value.trim().toLowerCase();
+      if (reponseUtilisateurQ6 === bonneReponseQ6.toLowerCase()) {
+        score++;
+        textarea.classList.add('textarea-correct');
+      } else {
+        textarea.classList.add('textarea-incorrect');
+      }
+
+      
+      result.innerHTML = `Votre score est : ${score}/6<br>Réponse écrite : ${form.q6.value}`;
+
+      
+      bonneReponse.innerHTML = `La réponse attendue pour la question 6 est : <strong>${bonneReponseQ6}</strong>`;
+    }
+  </script>
+</body>
+</html>

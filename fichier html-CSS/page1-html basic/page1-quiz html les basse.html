@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>le&#231;on 1 les bases de l'html</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>le&#231;on 1 les bases de l'html</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Quelle balise est utilisée pour écrire le plus petit ?</p>
+        <label><input type="radio" name="q1" value="wrong">&lt;h1&gt;</label><br>
+        <label><input type="radio" name="q1" value="wrong">&lt;h3&gt;</label><br>
+        <label><input type="radio" name="q1" value="correct">&lt;h6&gt;</label>
+      </div>
+      <div class="question">
+        <p>2. quel élément est essentiel dans une page html</p>
+        <label><input type="radio" name="q2" value="wrong"> &lt;img&gt;</label><br>
+        <label><input type="radio" name="q2" value="wrong"> &lt;a&gt;</label><br>
+        <label><input type="radio" name="q2" value="correct"> &lt;head&gt;</label>
+      </div>
+      <div class="question">
+        <p>3. à quoi sert la balise &lt;a&gt;</p>
+        <label><input type="radio" name="q3" value="correct">à mettre un lien</label><br>
+        <label><input type="radio" name="q3" value="wrong">à faire un espace</label><br>
+        <label><input type="radio" name="q3" value="wrong">à hacker ton pc</label><br>
+      </div>
+      <div class="question">
+        <p>4. quelle phrase est vraie</p>
+        <label><input type="radio" name="q4" value="correct">l'attribut &lt;a&gt; sert à mettre un lien</label><br>
+        <label><input type="radio" name="q4" value="wrong">quand tu acceptes les coockies sur internet tu re&#231;ois des coockies par la poste</label><br>
+        <label><input type="radio" name="q4" value="correct">l'attribut  sert à faire la plus grande écriture</label><br>
+      </div>
+      <div class="question">
+        <p>5. comment changer la taille de l'écriture</p>
+        <label><input type="radio" name="q5" value="correct"> en utilisant l'attribut &lt;h1&gt; à &lt;h6&gt; </label><br>
+        <label><input type="radio" name="q5" value="wrong"> en utilisant l'attribut &lt;p&gt; </label><br>
+        <label><input type="radio" name="q5" value="correct"> en lui fesant faire un régime </label><br>
+      <button type="button" onclick="checkAnswers()">obtenir mon score</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      const bonneReponse = document.getElementById('bonneReponse');
+      let score = 0;
+  
+      if (form.q1.value === "correct") score++;
+      if (form.q2.value === "correct") score++;
+      if (form.q3.value === "correct") score++;
+      if (form.q4.value === "correct") score++;
+      if (form.q5.value === "correct") score++;
+
+      
+      result.textContent = `ton scored et de ${score} sur 5 !`;
+    }
+  </script>
+</body>
+</html>

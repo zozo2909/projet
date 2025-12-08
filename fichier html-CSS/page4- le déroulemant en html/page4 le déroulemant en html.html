@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Petite leçon : éléments déroulants en HTML</title>
+</head>
+<body>
+
+  <h1>Petite leçon : Les éléments déroulants en HTML</h1>
+
+  <h2>1) Le menu déroulant (select)</h2>
+  <p>C'est un menu où l'utilisateur choisit une option.</p>
+  <pre>
+&lt;select&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+  </pre>
+
+  <h2>2) Le bandeau déroulant (marquee)</h2>
+  <p>Texte qui défile automatiquement.</p>
+  <pre>
+&lt;marquee&gt;Texte qui défile&lt;/marquee&gt;
+  </pre>
+
+  <h2>3) Le bloc déroulant (scroll)</h2>
+  <p>Un bloc qui affiche une barre de défilement quand il y a trop de contenu.</p>
+  <pre>
+&lt;div style="height:100px; overflow:auto;"&gt;
+  Long contenu...
+&lt;/div&gt;
+  </pre>
+
+  <h2>4) La zone de texte déroulante (textarea)</h2>
+  <p>Une zone d'écriture qui scrolle si le texte est trop long.</p>
+  <pre>
+&lt;textarea rows="4"&gt;Texte...&lt;/textarea&gt;
+  </pre>
+
+  <h2>5) Le bloc qui se déplie (details + summary)</h2>
+  <p>Un élément qui s'ouvre quand on clique dessus.</p>
+  <pre>
+&lt;details&gt;
+  &lt;summary&gt;Cliquer pour ouvrir&lt;/summary&gt;
+  Contenu caché.
+&lt;/details&gt;
+  </pre>
+
+  <h2>Résumé</h2>
+  <ul>
+    <li>&lt;select&gt; : menu déroulant</li>
+    <li>&lt;marquee&gt; : texte qui défile</li>
+    <li>&lt;div overflow&gt; : bloc scrollable</li>
+    <li>&lt;textarea&gt; : zone scrollable</li>
+    <li>&lt;details&gt; : bloc qui se déplie</li>
+  </ul>
+
+</body>
+</html>

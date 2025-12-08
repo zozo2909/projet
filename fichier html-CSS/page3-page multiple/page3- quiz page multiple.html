@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leçon 1 les bases de l'html</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #004080;
+    }
+    input[type="text"] {
+      padding: 5px;
+      width: 80%;
+      margin-top: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>leçon3 page multiple</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. </p>
+        <label><input type="radio" name="q1" value="wrong"> / </label><br>
+        <label><input type="radio" name="q1" value="wrong"> / </label><br>
+        <label><input type="radio" name="q1" value="correct"> / </label>
+      </div>
+      <div class="question">
+        <p>2.</p>
+        <label><input type="radio" name="q2" value="wrong"> &lt;img&gt;</label><br>
+        <label><input type="radio" name="q2" value="wrong"> :</label><br>
+        <label><input type="radio" name="q2" value="correct"> : </label>
+      </div>
+      <div class="question">
+        <p>3. </p>
+        <label><input type="radio" name="q3" value="correct">:</label><br>
+        <label><input type="radio" name="q3" value="wrong">:</label><br>
+        <label><input type="radio" name="q3" value="wrong">:</label><br>
+      </div>
+      <div class="question">
+        <p>4. </p>
+        <label><input type="radio" name="q4" value="correct">:</label><br>
+        <label><input type="radio" name="q4" value="wrong">:</label><br>
+        <label><input type="radio" name="q4" value="correct">:</label><br>
+      </div>
+      <div class="question">
+        <p>5. </p>
+        <label><input type="radio" name="q5" value="correct">:</label><br>
+        <label><input type="radio" name="q5" value="wrong">:</label><br>
+        <label><input type="radio" name="q5" value="correct">:</label><br>
+      </div>
+
+      <!-- Question texte à trou -->
+      <div class="question">
+        <p>6. Complétez la phrase : Pour créer un lien vers une autre page, on utilise la balise &lt;<input type="text" id="q6" placeholder="___"> &gt;.</p>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">obtenir mon score</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+
+      if (form.q1.value === "correct") score++;
+      if (form.q2.value === "correct") score++;
+      if (form.q3.value === "correct") score++;
+      if (form.q4.value === "correct") score++;
+      if (form.q5.value === "correct") score++;
+
+      // Vérification question à trou
+      const q6Answer = document.getElementById('q6').value.trim().toLowerCase();
+      if (q6Answer === "a") score++;  // réponse correcte
+
+      result.textContent = `ton score est de ${score} sur 6 !`;
+    }
+  </script>
+</body>
+</html>
+tml>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>le&#231;on </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>le&#231;on-4 le déroulemant en html </h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Quelle balise crée un menu déroulant ?</p>
+        <label><input type="radio" name="q1" value="wrong">menu</label><br>
+        <label><input type="radio" name="q1" value="wrong">dropdowninator</label><br>
+        <label><input type="radio" name="q1" value="correct">select</label>
+      </div>
+      <div class="question">
+        <p>2.Code utile pour un menu déroulant ?</p>
+        <label><input type="radio" name="q2" value="wrong"> : </label><br>
+        <label><input type="radio" name="q2" value="wrong">&lt;box&lt;<item&lt;Option&lt;/item&lt;&lt;/box&lt;</label><br>
+        <label><input type="radio" name="q2" value="correct">&lt;select&lt;&lt;option&lt;Option 1&lt;/option&lt;&lt;option&lt;Option 2&lt;/option&lt;&lt;option&lt;Option&lt; </label>
+      </div>
+      <div class="question">
+        <p>3. Quelle balise crée un texte qui défile automatiquement ?</p>
+        <label><input type="radio" name="q3" value="correct">:</label><br>
+        <label><input type="radio" name="q3" value="wrong">:</label><br>
+        <label><input type="radio" name="q3" value="wrong">:</label><br>
+      </div>
+      <div class="question">
+        <p>4. Comment créer un bloc avec barre de défilement quand le contenu est trop long ?</p>
+        <label><input type="radio" name="q4" value="correct">:</label><br>
+        <label><input type="radio" name="q4" value="wrong">:</label><br>
+        <label><input type="radio" name="q4" value="correct">:</label><br>
+      </div>
+      <div class="question">
+        <p>5. Quelle balise crée un bloc qui se déplie avec un titre visible ?</p>
+        <label><input type="radio" name="q5" value="correct">:</label><br>
+        <label><input type="radio" name="q5" value="wrong">:</label><br>
+        <label><input type="radio" name="q5" value="correct">:</label><br>
+      </div>
+      <div class="question">
+        <p>6. Balise pour une zone de défilement de texte sur plusieurs lignes ?</p>
+        <label><input type="radio" name="q6" value="correct">:</label><br>
+        <label><input type="radio" name="q6" value="wrong">:</label><br>
+        <label><input type="radio" name="q6" value="correct">:</label><br>
+      <button type="button" onclick="checkAnswers()">obtenir mon score</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+
+      if (form.q1.value === "correct") score++;
+      if (form.q2.value === "correct") score++;
+      if (form.q3.value === "correct") score++;
+      if (form.q4.value === "correct") score++;
+      if (form.q5.value === "correct") score++;
+      if (form.q6.value === "correct") score++;
+    
+
+      result.textContent = `ton scored et de ${score} sur 6!`;
+    }
+  </script>
+</body>
+</html>
