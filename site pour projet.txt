@@ -1,0 +1,22 @@
+carte mentale: 
+https://ladigitale.dev/digimindmap/#/m/67da7335d5433
+
+
+creé un serveur web:
+https://www.magentix.fr/blog/un-serveur-web-a-la-maison.html#:~:text=Si%20vous%20disposez%20de%20la%20fibre%20et%20d%27une,%C3%A9tapes%20pour%20l%27installation%20et%20la%20configuration%20du%20serveur.
+
+commen fontinone xampp:
+https://umvie.com/guide-complet-sur-le-fonctionnement-de-xampp-tout-ce-que-vous-devez-savoir/
+
+creé un basse de donneé:
+https://umvie.com/creer-une-base-de-donnees-avec-xampp-guide-pas-a-pas/#:~:text=Nous%20allons%20vous%20apprendre%20comment%20installer%20XAMPP%2C%20comment,la%20base%20de%20donn%C3%A9es%20que%20vous%20avez%20cr%C3%A9%C3%A9e.
+
+
+ip fix:
+https://astuce-pc.com/comment-definir-une-adresse-ip-statique-dans-windows-11/#:~:text=Pour%20d%C3%A9finir%20une%20adresse%20IP%20statique%20dans%20Windows,et%20Internet%20%C2%BB%20dans%20le%20menu%20de%20gauche.
+
+
+ouverture de port sur la Freebox:
+https://umvie.com/comment-ouvrir-le-port-80-sur-freebox-guide-pratique-et-facile/
+
+

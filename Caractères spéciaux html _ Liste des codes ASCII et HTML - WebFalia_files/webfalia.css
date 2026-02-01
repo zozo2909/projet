@@ -1,0 +1,81 @@
+h1 {text-align: right; font-size: 10px; text-transform: uppercase; font-weight: normal; position: absolute; top:50px; width: auto; text-align: right;}
+h1 a {color: #999;}
+h1 a:hover {color: #c52d2f;}
+div.web {display: none;}
+.r200 {
+    border: 10px solid #f6f5f0;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 3px #e7e4dc;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+}
+.center_contact {text-align: center; width: 200px;}
+div.image-serv {margin-top:50px;}
+.mtunu {padding-right: 150px; padding-left: 150px;}
+.bordw {border-radius: 4px;  background: #eee; padding: 15px 30px; }
+.fb-article {padding-top:20px; border: 1px solid #ddd;}
+
+
+.article-item2 {margin-top: 50px;}
+p.agence-web {font-size: 16px;}
+.services-wrap-home {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    height: 250px;
+    margin: 0 0 40px 0;
+    padding: 20px 30px;
+}
+
+.services-wrap-home h3 {
+    color:#c52d2f;
+}
+
+div.links {height: 350px;}
+.article-item2 h3, .mtunu h3 {font-size: 14px;}
+.list-group-item {padding: 0 15px} 
+.login {height: 500px; padding-top: 100px;}
+.login input {width: 200px; margin: 0 auto;}
+.login label {font-weight: normal;}
+
+.web-agence {height: 410px;}
+.web-internet {height: 560px;}
+.web-internet h2 {text-align: center;}
+.web-internet h3, .web-internet h3 a {color: #555;}
+.web-internet h3 a:hover {color: #000;}
+.no-padding-top {padding-top: 0;}
+.no-padding-bottom {padding-bottom: 0;}
+.navbar-toggle, .navbar-collapse {
+    z-index: 200;
+}
+.center-web {text-align: center;}
+#outils .container, #outils .chartS {width: 800px;}
+
+.clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+
+#outils .btn-primary {margin-top: 0px; padding: 5px 20px;}
+.is_col_right {float: left;  display: inline; margin-left: 20px; position: absolute; width: 500px; text-align: justify;}
+.is_col_left {float: left;  display: inline; }
+
+
+.art-cont {text-align: justify; width: 700px;}
+.art-center {padding-bottom: 0;}
+    
+
+#calpi2 {
+  padding-bottom:20px;
+}
+
+h5.webfa {font-size: 20px;}
+h5 span {font-weight: normal;}
