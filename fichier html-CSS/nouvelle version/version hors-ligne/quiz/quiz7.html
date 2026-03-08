@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Leçon 7</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .quiz-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 10px; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon 7 — Les formulaires</h1>
+    <form id="quizForm">
+      <div class="question"><p>1. Quelle balise crée un formulaire ?</p>
+        <label><input type="radio" name="q1" value="correct"> &lt;form&gt;</label><br>
+        <label><input type="radio" name="q1" value="wrong"> &lt;input&gt;</label><br>
+        <label><input type="radio" name="q1" value="wrong"> &lt;field&gt;</label></div>
+      <div class="question"><p>2. Quel type d'input est prévu pour un e-mail ?</p>
+        <label><input type="radio" name="q2" value="wrong"> type="text"</label><br>
+        <label><input type="radio" name="q2" value="correct"> type="email"</label><br>
+        <label><input type="radio" name="q2" value="wrong"> type="mail"</label></div>
+      <div class="question"><p>3. Quelle balise crée le bouton d'envoi ?</p>
+        <label><input type="radio" name="q3" value="wrong"> &lt;send&gt;</label><br>
+        <label><input type="radio" name="q3" value="wrong"> &lt;input type="send"&gt;</label><br>
+        <label><input type="radio" name="q3" value="correct"> &lt;button type="submit"&gt;</label></div>
+      <div class="question"><p>4. À quoi sert &lt;label&gt; ?</p>
+        <label><input type="radio" name="q4" value="correct"> Décrire un champ de saisie</label><br>
+        <label><input type="radio" name="q4" value="wrong"> Envoyer les données</label><br>
+        <label><input type="radio" name="q4" value="wrong"> Créer une liste déroulante</label></div>
+      <div class="question"><p>5. Quel type d'input permet de saisir du texte libre ?</p>
+        <label><input type="radio" name="q5" value="correct"> type="text"</label><br>
+        <label><input type="radio" name="q5" value="wrong"> type="write"</label><br>
+        <label><input type="radio" name="q5" value="wrong"> type="input"</label></div>
+      <div class="question"><p>6. À quoi sert l'attribut name sur un input ?</p>
+        <label><input type="radio" name="q6" value="wrong"> Afficher un texte dans le champ</label><br>
+        <label><input type="radio" name="q6" value="correct"> Identifier le champ lors de l'envoi des données</label><br>
+        <label><input type="radio" name="q6" value="wrong"> Changer la couleur</label></div>
+      <div class="question"><p>7. Les formulaires permettent aux utilisateurs de ...</p>
+        <label><input type="radio" name="q7" value="wrong"> Voir des images</label><br>
+        <label><input type="radio" name="q7" value="correct"> Fournir des informations (nom, email...)</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Naviguer entre les pages</label></div>
+      <div class="question"><p>8. Quelle balise entoure tous les éléments d'un formulaire ?</p>
+        <label><input type="radio" name="q8" value="correct"> &lt;form&gt;</label><br>
+        <label><input type="radio" name="q8" value="wrong"> &lt;div&gt;</label><br>
+        <label><input type="radio" name="q8" value="wrong"> &lt;section&gt;</label></div>
+      <div class="question"><p>9. La balise &lt;input&gt; est ...</p>
+        <label><input type="radio" name="q9" value="wrong"> Une balise avec &lt;/input&gt;</label><br>
+        <label><input type="radio" name="q9" value="correct"> Une balise auto-fermante</label><br>
+        <label><input type="radio" name="q9" value="wrong"> Une balise de titre</label></div>
+      <div class="question"><p>10. Quel attribut de &lt;button&gt; déclenche l'envoi du formulaire ?</p>
+        <label><input type="radio" name="q10" value="wrong"> type="send"</label><br>
+        <label><input type="radio" name="q10" value="wrong"> type="button"</label><br>
+        <label><input type="radio" name="q10" value="correct"> type="submit"</label></div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+      <button type="button" onclick="showCorrection()">Voir la correction</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form["q"+i].value === "correct") score++;
+      }
+      result.textContent = "Ton score est de " + score + " sur 10 !";
+    }
+    function showCorrection() {
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 10; i++) {
+        const radios = form["q"+i];
+        radios.forEach(function(radio) {
+          const label = radio.parentElement;
+          if (radio.value === "correct") {
+            label.classList.add("correct");
+          } else if (radio.checked && radio.value === "wrong") {
+            label.classList.add("wrong");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

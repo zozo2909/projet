@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Leçon 9</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .quiz-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 10px; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon 9 — Navigation entre les pages</h1>
+    <form id="quizForm">
+      <div class="question"><p>1. Quelle balise est prévue pour le menu de navigation ?</p>
+        <label><input type="radio" name="q1" value="wrong"> &lt;menu&gt;</label><br>
+        <label><input type="radio" name="q1" value="correct"> &lt;nav&gt;</label><br>
+        <label><input type="radio" name="q1" value="wrong"> &lt;header&gt;</label></div>
+      <div class="question"><p>2. Comment s'appelle généralement la page principale d'un site ?</p>
+        <label><input type="radio" name="q2" value="correct"> index.html</label><br>
+        <label><input type="radio" name="q2" value="wrong"> home.html</label><br>
+        <label><input type="radio" name="q2" value="wrong"> main.html</label></div>
+      <div class="question"><p>3. Quelle balise crée les liens dans un menu ?</p>
+        <label><input type="radio" name="q3" value="wrong"> &lt;link&gt;</label><br>
+        <label><input type="radio" name="q3" value="wrong"> &lt;button&gt;</label><br>
+        <label><input type="radio" name="q3" value="correct"> &lt;a&gt;</label></div>
+      <div class="question"><p>4. Un site web est composé de ...</p>
+        <label><input type="radio" name="q4" value="correct"> Plusieurs pages reliées par des liens</label><br>
+        <label><input type="radio" name="q4" value="wrong"> Un seul fichier HTML</label><br>
+        <label><input type="radio" name="q4" value="wrong"> Uniquement des images</label></div>
+      <div class="question"><p>5. Dans quelle balise place-t-on le menu de navigation ?</p>
+        <label><input type="radio" name="q5" value="wrong"> &lt;header&gt;</label><br>
+        <label><input type="radio" name="q5" value="correct"> &lt;nav&gt;</label><br>
+        <label><input type="radio" name="q5" value="wrong"> &lt;footer&gt;</label></div>
+      <div class="question"><p>6. Quelle syntaxe est correcte pour un lien vers "about.html" ?</p>
+        <label><input type="radio" name="q6" value="correct"> &lt;a href="about.html"&gt;À propos&lt;/a&gt;</label><br>
+        <label><input type="radio" name="q6" value="wrong"> &lt;nav href="about.html"&gt;À propos&lt;/nav&gt;</label><br>
+        <label><input type="radio" name="q6" value="wrong"> &lt;link href="about.html"&gt;À propos&lt;/link&gt;</label></div>
+      <div class="question"><p>7. Peut-on avoir plusieurs balises &lt;nav&gt; sur une page ?</p>
+        <label><input type="radio" name="q7" value="correct"> Oui</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Non, une seule par page</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Maximum deux</label></div>
+      <div class="question"><p>8. Les liens de navigation pointent vers ...</p>
+        <label><input type="radio" name="q8" value="wrong"> Des images uniquement</label><br>
+        <label><input type="radio" name="q8" value="correct"> D'autres pages du site</label><br>
+        <label><input type="radio" name="q8" value="wrong"> Des fichiers CSS</label></div>
+      <div class="question"><p>9. Quelle balise est la plus adaptée pour un menu de navigation ?</p>
+        <label><input type="radio" name="q9" value="wrong"> &lt;div&gt;</label><br>
+        <label><input type="radio" name="q9" value="wrong"> &lt;section&gt;</label><br>
+        <label><input type="radio" name="q9" value="correct"> &lt;nav&gt;</label></div>
+      <div class="question"><p>10. Pour naviguer entre les pages on utilise ...</p>
+        <label><input type="radio" name="q10" value="wrong"> La balise &lt;goto&gt;</label><br>
+        <label><input type="radio" name="q10" value="correct"> Des liens &lt;a href="..."&gt;</label><br>
+        <label><input type="radio" name="q10" value="wrong"> La balise &lt;page&gt;</label></div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+      <button type="button" onclick="showCorrection()">Voir la correction</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form["q"+i].value === "correct") score++;
+      }
+      result.textContent = "Ton score est de " + score + " sur 10 !";
+    }
+    function showCorrection() {
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 10; i++) {
+        const radios = form["q"+i];
+        radios.forEach(function(radio) {
+          const label = radio.parentElement;
+          if (radio.value === "correct") {
+            label.classList.add("correct");
+          } else if (radio.checked && radio.value === "wrong") {
+            label.classList.add("wrong");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

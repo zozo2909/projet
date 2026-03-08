@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Leçon 10</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .quiz-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 10px; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon 10 — Les balises sémantiques</h1>
+    <form id="quizForm">
+      <div class="question"><p>1. Que signifie "balise sémantique" ?</p>
+        <label><input type="radio" name="q1" value="wrong"> Une balise décorative</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Une balise qui change la couleur</label><br>
+        <label><input type="radio" name="q1" value="correct"> Une balise qui donne du sens au contenu</label></div>
+      <div class="question"><p>2. Quelle balise représente l'en-tête d'une page ?</p>
+        <label><input type="radio" name="q2" value="correct"> &lt;header&gt;</label><br>
+        <label><input type="radio" name="q2" value="wrong"> &lt;head&gt;</label><br>
+        <label><input type="radio" name="q2" value="wrong"> &lt;top&gt;</label></div>
+      <div class="question"><p>3. Quelle balise contient le contenu principal ?</p>
+        <label><input type="radio" name="q3" value="wrong"> &lt;section&gt;</label><br>
+        <label><input type="radio" name="q3" value="correct"> &lt;main&gt;</label><br>
+        <label><input type="radio" name="q3" value="wrong"> &lt;div&gt;</label></div>
+      <div class="question"><p>4. Quelle balise représente le pied de page ?</p>
+        <label><input type="radio" name="q4" value="wrong"> &lt;bottom&gt;</label><br>
+        <label><input type="radio" name="q4" value="wrong"> &lt;end&gt;</label><br>
+        <label><input type="radio" name="q4" value="correct"> &lt;footer&gt;</label></div>
+      <div class="question"><p>5. Quelle est la différence entre &lt;header&gt; et &lt;head&gt; ?</p>
+        <label><input type="radio" name="q5" value="wrong"> Aucune, c'est pareil</label><br>
+        <label><input type="radio" name="q5" value="correct"> &lt;header&gt; est visible dans le body, &lt;head&gt; contient les infos techniques</label><br>
+        <label><input type="radio" name="q5" value="wrong"> &lt;head&gt; est visible, &lt;header&gt; est technique</label></div>
+      <div class="question"><p>6. Les balises sémantiques aident ...</p>
+        <label><input type="radio" name="q6" value="correct"> Le navigateur et les moteurs de recherche à comprendre le contenu</label><br>
+        <label><input type="radio" name="q6" value="wrong"> Uniquement à changer le style</label><br>
+        <label><input type="radio" name="q6" value="wrong"> À créer des animations</label></div>
+      <div class="question"><p>7. Combien de balises &lt;main&gt; doit-il y avoir par page ?</p>
+        <label><input type="radio" name="q7" value="correct"> Une seule</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Autant qu'on veut</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Maximum trois</label></div>
+      <div class="question"><p>8. Quelle balise est générique et sans sens sémantique ?</p>
+        <label><input type="radio" name="q8" value="wrong"> &lt;main&gt;</label><br>
+        <label><input type="radio" name="q8" value="wrong"> &lt;footer&gt;</label><br>
+        <label><input type="radio" name="q8" value="correct"> &lt;div&gt;</label></div>
+      <div class="question"><p>9. Quelle balise représente le menu de navigation ?</p>
+        <label><input type="radio" name="q9" value="wrong"> &lt;menu&gt;</label><br>
+        <label><input type="radio" name="q9" value="correct"> &lt;nav&gt;</label><br>
+        <label><input type="radio" name="q9" value="wrong"> &lt;aside&gt;</label></div>
+      <div class="question"><p>10. Quelle balise contient le copyright en bas de page ?</p>
+        <label><input type="radio" name="q10" value="wrong"> &lt;header&gt;</label><br>
+        <label><input type="radio" name="q10" value="wrong"> &lt;main&gt;</label><br>
+        <label><input type="radio" name="q10" value="correct"> &lt;footer&gt;</label></div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+      <button type="button" onclick="showCorrection()">Voir la correction</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form["q"+i].value === "correct") score++;
+      }
+      result.textContent = "Ton score est de " + score + " sur 10 !";
+    }
+    function showCorrection() {
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 10; i++) {
+        const radios = form["q"+i];
+        radios.forEach(function(radio) {
+          const label = radio.parentElement;
+          if (radio.value === "correct") {
+            label.classList.add("correct");
+          } else if (radio.checked && radio.value === "wrong") {
+            label.classList.add("wrong");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

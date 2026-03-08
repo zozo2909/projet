@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Leçon 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .quiz-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 10px; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon 1 — Structure d'une page HTML</h1>
+    <form id="quizForm">
+      <div class="question"><p>1. Que signifie HTML ?</p>
+        <label><input type="radio" name="q1" value="correct"> HyperText Markup Language</label><br>
+        <label><input type="radio" name="q1" value="wrong"> High Tech Modern Language</label><br>
+        <label><input type="radio" name="q1" value="wrong"> HyperTransfer Markup Logic</label></div>
+      <div class="question"><p>2. Quelle balise contient le contenu visible de la page ?</p>
+        <label><input type="radio" name="q2" value="wrong"> &lt;head&gt;</label><br>
+        <label><input type="radio" name="q2" value="wrong"> &lt;html&gt;</label><br>
+        <label><input type="radio" name="q2" value="correct"> &lt;body&gt;</label></div>
+      <div class="question"><p>3. À quoi sert &lt;!DOCTYPE html&gt; ?</p>
+        <label><input type="radio" name="q3" value="correct"> Indiquer au navigateur que c'est du HTML5</label><br>
+        <label><input type="radio" name="q3" value="wrong"> Définir le titre de la page</label><br>
+        <label><input type="radio" name="q3" value="wrong"> Créer un lien vers un fichier CSS</label></div>
+      <div class="question"><p>4. Dans quelle balise place-t-on le titre affiché dans l'onglet ?</p>
+        <label><input type="radio" name="q4" value="wrong"> &lt;h1&gt;</label><br>
+        <label><input type="radio" name="q4" value="correct"> &lt;title&gt;</label><br>
+        <label><input type="radio" name="q4" value="wrong"> &lt;header&gt;</label></div>
+      <div class="question"><p>5. Quelle balise contient les informations techniques de la page ?</p>
+        <label><input type="radio" name="q5" value="correct"> &lt;head&gt;</label><br>
+        <label><input type="radio" name="q5" value="wrong"> &lt;body&gt;</label><br>
+        <label><input type="radio" name="q5" value="wrong"> &lt;main&gt;</label></div>
+      <div class="question"><p>6. Quelle balise est la racine de toute page HTML ?</p>
+        <label><input type="radio" name="q6" value="wrong"> &lt;body&gt;</label><br>
+        <label><input type="radio" name="q6" value="correct"> &lt;html&gt;</label><br>
+        <label><input type="radio" name="q6" value="wrong"> &lt;head&gt;</label></div>
+      <div class="question"><p>7. À quoi sert lang="fr" dans &lt;html&gt; ?</p>
+        <label><input type="radio" name="q7" value="wrong"> Traduire la page en français</label><br>
+        <label><input type="radio" name="q7" value="correct"> Indiquer que la langue de la page est le français</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Changer la police du texte</label></div>
+      <div class="question"><p>8. Quelle est la bonne structure d'une page HTML ?</p>
+        <label><input type="radio" name="q8" value="wrong"> &lt;body&gt; contient &lt;head&gt;</label><br>
+        <label><input type="radio" name="q8" value="correct"> &lt;html&gt; contient &lt;head&gt; et &lt;body&gt;</label><br>
+        <label><input type="radio" name="q8" value="wrong"> &lt;head&gt; contient &lt;html&gt;</label></div>
+      <div class="question"><p>9. HTML est comparé à quoi dans la leçon ?</p>
+        <label><input type="radio" name="q9" value="wrong"> Un moteur</label><br>
+        <label><input type="radio" name="q9" value="wrong"> Une peau</label><br>
+        <label><input type="radio" name="q9" value="correct"> Un squelette</label></div>
+      <div class="question"><p>10. Quel langage s'occupe du style d'une page web (couleurs, polices...) ?</p>
+        <label><input type="radio" name="q10" value="wrong"> HTML</label><br>
+        <label><input type="radio" name="q10" value="correct"> CSS</label><br>
+        <label><input type="radio" name="q10" value="wrong"> JavaScript</label></div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+      <button type="button" onclick="showCorrection()">Voir la correction</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form["q"+i].value === "correct") score++;
+      }
+      result.textContent = "Ton score est de " + score + " sur 10 !";
+    }
+    function showCorrection() {
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 10; i++) {
+        const radios = form["q"+i];
+        radios.forEach(function(radio) {
+          const label = radio.parentElement;
+          if (radio.value === "correct") {
+            label.classList.add("correct");
+          } else if (radio.checked && radio.value === "wrong") {
+            label.classList.add("wrong");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

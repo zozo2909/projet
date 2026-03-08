@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Leçon 4</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .quiz-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 10px; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon 4 — Les images</h1>
+    <form id="quizForm">
+      <div class="question"><p>1. Quelle balise affiche une image ?</p>
+        <label><input type="radio" name="q1" value="wrong"> &lt;image&gt;</label><br>
+        <label><input type="radio" name="q1" value="correct"> &lt;img&gt;</label><br>
+        <label><input type="radio" name="q1" value="wrong"> &lt;photo&gt;</label></div>
+      <div class="question"><p>2. Quel attribut indique le chemin de l'image ?</p>
+        <label><input type="radio" name="q2" value="correct"> src</label><br>
+        <label><input type="radio" name="q2" value="wrong"> href</label><br>
+        <label><input type="radio" name="q2" value="wrong"> path</label></div>
+      <div class="question"><p>3. À quoi sert l'attribut alt ?</p>
+        <label><input type="radio" name="q3" value="wrong"> Changer la couleur</label><br>
+        <label><input type="radio" name="q3" value="correct"> Afficher un texte si l'image ne charge pas</label><br>
+        <label><input type="radio" name="q3" value="wrong"> Définir la hauteur</label></div>
+      <div class="question"><p>4. Quel attribut définit la largeur d'une image ?</p>
+        <label><input type="radio" name="q4" value="wrong"> size</label><br>
+        <label><input type="radio" name="q4" value="correct"> width</label><br>
+        <label><input type="radio" name="q4" value="wrong"> length</label></div>
+      <div class="question"><p>5. La balise &lt;img&gt; a-t-elle une balise fermante ?</p>
+        <label><input type="radio" name="q5" value="wrong"> Oui : &lt;/img&gt;</label><br>
+        <label><input type="radio" name="q5" value="correct"> Non, elle est auto-fermante</label><br>
+        <label><input type="radio" name="q5" value="wrong"> Oui : &lt;/image&gt;</label></div>
+      <div class="question"><p>6. Quelle est la syntaxe correcte pour afficher une image ?</p>
+        <label><input type="radio" name="q6" value="wrong"> &lt;image src="chat.jpg"&gt;</label><br>
+        <label><input type="radio" name="q6" value="correct"> &lt;img src="chat.jpg" alt="Chat"&gt;</label><br>
+        <label><input type="radio" name="q6" value="wrong"> &lt;img href="chat.jpg"&gt;</label></div>
+      <div class="question"><p>7. Pourquoi mettre toujours un attribut alt ?</p>
+        <label><input type="radio" name="q7" value="wrong"> Pour changer la taille</label><br>
+        <label><input type="radio" name="q7" value="correct"> Pour l'accessibilité et si l'image ne charge pas</label><br>
+        <label><input type="radio" name="q7" value="wrong"> C'est obligatoire sinon la page plante</label></div>
+      <div class="question"><p>8. Quel attribut redimensionne une image à 300px de large ?</p>
+        <label><input type="radio" name="q8" value="wrong"> size="300"</label><br>
+        <label><input type="radio" name="q8" value="wrong"> height="300"</label><br>
+        <label><input type="radio" name="q8" value="correct"> width="300"</label></div>
+      <div class="question"><p>9. Que se passe-t-il si le fichier image est introuvable ?</p>
+        <label><input type="radio" name="q9" value="wrong"> La page entière s'efface</label><br>
+        <label><input type="radio" name="q9" value="correct"> Le texte de l'attribut alt s'affiche à la place</label><br>
+        <label><input type="radio" name="q9" value="wrong"> Rien ne se passe</label></div>
+      <div class="question"><p>10. Les images servent à ...</p>
+        <label><input type="radio" name="q10" value="wrong"> Structurer la page</label><br>
+        <label><input type="radio" name="q10" value="wrong"> Créer des liens</label><br>
+        <label><input type="radio" name="q10" value="correct"> Rendre le site plus attractif et illustrer le contenu</label></div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+      <button type="button" onclick="showCorrection()">Voir la correction</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form["q"+i].value === "correct") score++;
+      }
+      result.textContent = "Ton score est de " + score + " sur 10 !";
+    }
+    function showCorrection() {
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 10; i++) {
+        const radios = form["q"+i];
+        radios.forEach(function(radio) {
+          const label = radio.parentElement;
+          if (radio.value === "correct") {
+            label.classList.add("correct");
+          } else if (radio.checked && radio.value === "wrong") {
+            label.classList.add("wrong");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

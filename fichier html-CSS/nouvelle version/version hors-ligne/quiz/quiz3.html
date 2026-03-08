@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Leçon 3</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .quiz-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 10px; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-right: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Leçon 3 — Les liens</h1>
+    <form id="quizForm">
+      <div class="question"><p>1. Quelle balise crée un lien ?</p>
+        <label><input type="radio" name="q1" value="wrong"> &lt;link&gt;</label><br>
+        <label><input type="radio" name="q1" value="correct"> &lt;a&gt;</label><br>
+        <label><input type="radio" name="q1" value="wrong"> &lt;href&gt;</label></div>
+      <div class="question"><p>2. Quel attribut indique l'adresse de destination ?</p>
+        <label><input type="radio" name="q2" value="correct"> href</label><br>
+        <label><input type="radio" name="q2" value="wrong"> src</label><br>
+        <label><input type="radio" name="q2" value="wrong"> url</label></div>
+      <div class="question"><p>3. Quel attribut ouvre un lien dans un nouvel onglet ?</p>
+        <label><input type="radio" name="q3" value="wrong"> open="tab"</label><br>
+        <label><input type="radio" name="q3" value="wrong"> href="_blank"</label><br>
+        <label><input type="radio" name="q3" value="correct"> target="_blank"</label></div>
+      <div class="question"><p>4. Quel est un exemple de lien interne ?</p>
+        <label><input type="radio" name="q4" value="correct"> &lt;a href="contact.html"&gt;Contact&lt;/a&gt;</label><br>
+        <label><input type="radio" name="q4" value="wrong"> &lt;a href="https://google.com"&gt;Google&lt;/a&gt;</label><br>
+        <label><input type="radio" name="q4" value="wrong"> &lt;link href="contact.html"&gt;</label></div>
+      <div class="question"><p>5. Quel est un exemple de lien externe ?</p>
+        <label><input type="radio" name="q5" value="wrong"> &lt;a href="contact.html"&gt;Contact&lt;/a&gt;</label><br>
+        <label><input type="radio" name="q5" value="correct"> &lt;a href="https://wikipedia.org"&gt;Wikipedia&lt;/a&gt;</label><br>
+        <label><input type="radio" name="q5" value="wrong"> &lt;a href="index.html"&gt;Accueil&lt;/a&gt;</label></div>
+      <div class="question"><p>6. Où écrit-on le texte cliquable d'un lien ?</p>
+        <label><input type="radio" name="q6" value="wrong"> Dans l'attribut href</label><br>
+        <label><input type="radio" name="q6" value="correct"> Entre les balises &lt;a&gt; et &lt;/a&gt;</label><br>
+        <label><input type="radio" name="q6" value="wrong"> Dans l'attribut src</label></div>
+      <div class="question"><p>7. Que fait target="_blank" ?</p>
+        <label><input type="radio" name="q7" value="wrong"> Ouvre dans le même onglet</label><br>
+        <label><input type="radio" name="q7" value="wrong"> Ferme la page</label><br>
+        <label><input type="radio" name="q7" value="correct"> Ouvre dans un nouvel onglet</label></div>
+      <div class="question"><p>8. Un lien interne pointe vers ...</p>
+        <label><input type="radio" name="q8" value="correct"> Une autre page du même site</label><br>
+        <label><input type="radio" name="q8" value="wrong"> Un site externe</label><br>
+        <label><input type="radio" name="q8" value="wrong"> Une image</label></div>
+      <div class="question"><p>9. Quelle est la bonne syntaxe pour un lien vers Google ?</p>
+        <label><input type="radio" name="q9" value="wrong"> &lt;link href="https://google.com"&gt;Google&lt;/link&gt;</label><br>
+        <label><input type="radio" name="q9" value="correct"> &lt;a href="https://google.com"&gt;Google&lt;/a&gt;</label><br>
+        <label><input type="radio" name="q9" value="wrong"> &lt;a src="https://google.com"&gt;Google&lt;/a&gt;</label></div>
+      <div class="question"><p>10. Quelle valeur de href pointe vers "about.html" ?</p>
+        <label><input type="radio" name="q10" value="wrong"> href="https://about.html"</label><br>
+        <label><input type="radio" name="q10" value="correct"> href="about.html"</label><br>
+        <label><input type="radio" name="q10" value="wrong"> src="about.html"</label></div>
+      <button type="button" onclick="checkAnswers()">Obtenir mon score</button>
+      <button type="button" onclick="showCorrection()">Voir la correction</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (form["q"+i].value === "correct") score++;
+      }
+      result.textContent = "Ton score est de " + score + " sur 10 !";
+    }
+    function showCorrection() {
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 10; i++) {
+        const radios = form["q"+i];
+        radios.forEach(function(radio) {
+          const label = radio.parentElement;
+          if (radio.value === "correct") {
+            label.classList.add("correct");
+          } else if (radio.checked && radio.value === "wrong") {
+            label.classList.add("wrong");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
