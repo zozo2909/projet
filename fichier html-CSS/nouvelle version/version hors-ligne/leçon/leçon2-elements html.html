@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leçon 2 : Balises de texte</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
+</head>
+<body>
+<h1>Les balises de texte</h1>
+<p>HTML utilise des balises pour organiser et donner du sens au texte. Chaque balise indique au navigateur ce que représente le contenu.</p>
+
+<h2>Les titres — h1 à h6</h2>
+<p>HTML propose 6 niveaux de titres. Plus le chiffre est petit, plus le titre est important. Une seule balise <strong>&lt;h1&gt;</strong> par page est recommandée.</p>
+<pre><span class="tag">&lt;h1&gt;</span>Titre principal (un seul par page)<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Titre de section<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span>Titre de sous-section<span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;h4&gt;</span>Niveau 4<span class="tag">&lt;/h4&gt;</span>
+<span class="tag">&lt;h5&gt;</span>Niveau 5<span class="tag">&lt;/h5&gt;</span>
+<span class="tag">&lt;h6&gt;</span>Niveau 6<span class="tag">&lt;/h6&gt;</span></pre>
+
+<h2>Les paragraphes</h2>
+<p>La balise <strong>&lt;p&gt;</strong> définit un paragraphe. Le navigateur ajoute automatiquement un espace avant et après.</p>
+<pre><span class="tag">&lt;p&gt;</span>Premier paragraphe.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p&gt;</span>Deuxième paragraphe, séparé du premier.<span class="tag">&lt;/p&gt;</span></pre>
+
+<h2>Mettre du texte en valeur</h2>
+<ul>
+  <li><strong>&lt;strong&gt;</strong> — Texte important, affiché en gras. Sens sémantique fort.</li>
+  <li><strong>&lt;em&gt;</strong> — Texte en emphase, affiché en italique.</li>
+  <li><strong>&lt;mark&gt;</strong> — Texte surligné, passage mis en évidence.</li>
+  <li><strong>&lt;small&gt;</strong> — Texte plus petit, mentions légales, notes.</li>
+  <li><strong>&lt;del&gt;</strong> — Texte barré, contenu supprimé ou obsolète.</li>
+  <li><strong>&lt;ins&gt;</strong> — Texte souligné, contenu ajouté.</li>
+</ul>
+<pre><span class="tag">&lt;p&gt;</span>
+  Ce mot est <span class="tag">&lt;strong&gt;</span>très important<span class="tag">&lt;/strong&gt;</span>.
+  Celui-ci est <span class="tag">&lt;em&gt;</span>accentué<span class="tag">&lt;/em&gt;</span>.
+  Et là on <span class="tag">&lt;mark&gt;</span>surligne<span class="tag">&lt;/mark&gt;</span> un passage.
+<span class="tag">&lt;/p&gt;</span></pre>
+
+<h2>Balises spéciales</h2>
+<ul>
+  <li><strong>&lt;br&gt;</strong> — Saut de ligne forcé (balise auto-fermante).</li>
+  <li><strong>&lt;hr&gt;</strong> — Ligne horizontale de séparation.</li>
+  <li><strong>&lt;pre&gt;</strong> — Texte préformaté, espaces et retours à la ligne respectés.</li>
+  <li><strong>&lt;code&gt;</strong> — Code en ligne, police monospace.</li>
+  <li><strong>&lt;blockquote&gt;</strong> — Citation longue, affichée en retrait.</li>
+  <li><strong>&lt;abbr title="..."&gt;</strong> — Abréviation, définition au survol.</li>
+</ul>
+<pre><span class="tag">&lt;blockquote&gt;</span>Le web est pour tout le monde. — Tim Berners-Lee<span class="tag">&lt;/blockquote&gt;</span>
+
+<span class="tag">&lt;abbr</span> <span class="attr">title</span>=<span class="val">"HyperText Markup Language"</span><span class="tag">&gt;</span>HTML<span class="tag">&lt;/abbr&gt;</span></pre>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li>Ne pas utiliser les titres juste pour la taille — ils ont un sens sémantique.</li>
+  <li>Préférer <strong>&lt;strong&gt;</strong> à <strong>&lt;b&gt;</strong> et <strong>&lt;em&gt;</strong> à <strong>&lt;i&gt;</strong>.</li>
+  <li>Ne pas abuser de <strong>&lt;br&gt;</strong> pour créer des espaces — utiliser CSS.</li>
+  <li>Respecter la hiérarchie des titres (h1 → h2 → h3, pas de sauts).</li>
+</ul>
+
+</body>
+</html>

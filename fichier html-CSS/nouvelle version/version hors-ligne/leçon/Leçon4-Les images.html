@@ -1,28 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leçon 4 : Les images</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 4 : Les images</h1>
-
-<p>Les images rendent un site plus attractif et permettent d’illustrer le contenu.</p>
-
-<h2>Image simple</h2>
-<pre>
-&lt;img src="chat.jpg" alt="Photo d'un chat"&gt;
-</pre>
-
-<p>Explications :</p>
+<h1>Les images</h1>
+<p>La balise <strong>&lt;img&gt;</strong> affiche une image. C'est une balise auto-fermante avec deux attributs essentiels.</p>
+<pre><span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"chemin/image.jpg"</span> <span class="attr">alt</span>=<span class="val">"Description de l'image"</span><span class="tag">&gt;</span></pre>
 <ul>
-<li><strong>src</strong> : chemin vers le fichier image.</li>
-<li><strong>alt</strong> : texte alternatif si l’image ne s’affiche pas.</li>
+  <li><strong>src</strong> — Chemin vers le fichier image (local ou URL web).</li>
+  <li><strong>alt</strong> — Texte alternatif si l'image ne charge pas. Indispensable pour l'accessibilité.</li>
 </ul>
 
-<h2>Redimensionner l’image</h2>
-<pre>
-&lt;img src="chat.jpg" alt="Chat" width="300"&gt;
-</pre>
+<h2>Les attributs de &lt;img&gt;</h2>
+<table>
+  <tr><th>Attribut</th><th>Exemple</th><th>Description</th></tr>
+  <tr><td>src</td><td>src="photo.jpg"</td><td>Chemin de l'image — obligatoire</td></tr>
+  <tr><td>alt</td><td>alt="Un chien"</td><td>Texte alternatif — obligatoire</td></tr>
+  <tr><td>width</td><td>width="400"</td><td>Largeur en pixels</td></tr>
+  <tr><td>height</td><td>height="300"</td><td>Hauteur en pixels</td></tr>
+  <tr><td>loading</td><td>loading="lazy"</td><td>Chargement différé (performance)</td></tr>
+  <tr><td>title</td><td>title="Info-bulle"</td><td>Info-bulle au survol</td></tr>
+</table>
+<pre><span class="comment">&lt;!-- Image locale avec dimensions --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"images/chat.jpg"</span>
+     <span class="attr">alt</span>=<span class="val">"Un chat roux sur un canapé"</span>
+     <span class="attr">width</span>=<span class="val">"600"</span> <span class="attr">height</span>=<span class="val">"400"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Image avec chargement différé --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"photo.jpg"</span> <span class="attr">alt</span>=<span class="val">"Paysage"</span> <span class="attr">loading</span>=<span class="val">"lazy"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Image décorative (alt vide = ignorée par lecteurs d'écran) --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"deco.png"</span> <span class="attr">alt</span>=<span class="val">""</span><span class="tag">&gt;</span></pre>
+
+<h2>Les formats d'image</h2>
+<ul>
+  <li><strong>.jpg</strong> — Photos. Bonne compression, légère perte de qualité.</li>
+  <li><strong>.png</strong> — Images avec transparence. Qualité parfaite, fichiers plus lourds.</li>
+  <li><strong>.svg</strong> — Icônes vectorielles. Infiniment redimensionnable sans perte.</li>
+  <li><strong>.webp</strong> — Format moderne. Meilleure compression que jpg/png.</li>
+  <li><strong>.gif</strong> — Images animées simples. Limité à 256 couleurs.</li>
+</ul>
+
+<h2>Image cliquable</h2>
+<pre><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"galerie.html"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"apercu.jpg"</span> <span class="attr">alt</span>=<span class="val">"Voir la galerie"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/a&gt;</span></pre>
+
+<h2>Figure avec légende</h2>
+<pre><span class="tag">&lt;figure&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"mont-fuji.jpg"</span> <span class="attr">alt</span>=<span class="val">"Le Mont Fuji"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;figcaption&gt;</span>Le Mont Fuji, Japon<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span></pre>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li>Toujours renseigner <strong>alt</strong> — description précise pour les images informatives, <code>alt=""</code> pour les décorations.</li>
+  <li>Spécifier <strong>width et height</strong> pour éviter les sauts de page au chargement.</li>
+  <li>Utiliser <strong>loading="lazy"</strong> pour les images en bas de page.</li>
+  <li>Optimiser le poids des images — viser moins de 200 Ko.</li>
+</ul>
 
 </body>
 </html>

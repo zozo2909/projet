@@ -1,49 +1,85 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Leçon 1 : Structure d’une page HTML</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leçon 1 : Structure HTML</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 1 : Structure d’une page HTML</h1>
+<h1>Structure d'une page HTML</h1>
+<p>HTML (<strong>HyperText Markup Language</strong>) est le langage de base du web. Il structure le contenu : titres, paragraphes, images, liens... C'est le squelette sur lequel tout repose. CSS s'occupe du style, JavaScript des interactions.</p>
 
-<p>HTML (HyperText Markup Language) est le langage qui sert à <strong>structurer une page web</strong>. 
-On peut le comparer à un squelette : il donne une forme au site, mais ne s’occupe pas encore du style.</p>
-
-<h2>Structure de base d’une page HTML</h2>
-<p>Une page HTML se divise toujours en deux parties principales :</p>
+<h2>Les deux parties d'une page HTML</h2>
 <ol>
-<li><strong>&lt;head&gt;</strong> : zone invisible contenant les informations techniques (titre, encodage des caractères, etc.)</li>
-<li><strong>&lt;body&gt;</strong> : zone visible où se trouve tout le contenu affiché à l’écran.</li>
+  <li><strong>&lt;head&gt;</strong> — Zone invisible. Titre de l'onglet, encodage, liens CSS, métadonnées.</li>
+  <li><strong>&lt;body&gt;</strong> — Zone visible. Tout ce que l'utilisateur voit à l'écran.</li>
 </ol>
 
-<h2>Exemple d’une page HTML complète</h2>
-<pre>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="fr"&gt;
-&lt;head&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;title>Mon premier site&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;Bienvenue !&lt;/h1&gt;
-&lt;p&gt>Ceci est ma première page HTML.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
+<h2>Exemple complet</h2>
+<pre><span class="comment">&lt;!-- Déclaration obligatoire en première ligne --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"fr"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Mon premier site<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Bienvenue !<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Ma première page HTML.<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
 
-<h2>Explications</h2>
+<h2>Explication ligne par ligne</h2>
 <ul>
-<li><strong>&lt;!DOCTYPE html&gt;</strong> : indique au navigateur que c’est du HTML5.</li>
-<li><strong>&lt;html lang="fr"&gt;</strong> : indique que la langue est le français.</li>
-<li><strong>&lt;head&gt;</strong> : contient les informations techniques.</li>
-<li><strong>&lt;body&gt;</strong> : contient le contenu visible.</li>
+  <li><strong>&lt;!DOCTYPE html&gt;</strong> — Indique que la page utilise HTML5. Toujours en première ligne.</li>
+  <li><strong>&lt;html lang="fr"&gt;</strong> — Balise racine. L'attribut <code>lang</code> précise la langue pour les lecteurs d'écran et Google.</li>
+  <li><strong>&lt;meta name="viewport"&gt;</strong> — Rend la page adaptée aux mobiles.</li>
+  <li><strong>&lt;title&gt;</strong> — Texte affiché dans l'onglet du navigateur et dans les résultats Google.</li>
 </ul>
+
+<h2>Comment fonctionne une balise ?</h2>
+<p>Une balise HTML s'écrit entre chevrons. La plupart vont par paires :</p>
+<pre><span class="tag">&lt;balise&gt;</span> contenu <span class="tag">&lt;/balise&gt;</span>
+
+<span class="comment">&lt;!-- Certaines sont auto-fermantes --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"photo.jpg"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;br&gt;</span>   <span class="comment">&lt;!-- saut de ligne --&gt;</span>
+<span class="tag">&lt;hr&gt;</span>   <span class="comment">&lt;!-- ligne horizontale --&gt;</span></pre>
+
+<div class="info"> Les balises doivent être correctement imbriquées : si on ouvre <code>&lt;div&gt;</code> puis <code>&lt;p&gt;</code>, on ferme <code>&lt;/p&gt;</code> avant <code>&lt;/div&gt;</code>.</div>
 
 <h2>Bonnes pratiques</h2>
 <ul>
-<li>Commencer toujours par <strong>&lt;!DOCTYPE html&gt;</strong>.</li>
-<li>Mettre la langue de la page avec <strong>lang="fr"</strong>.</li>
-<li>Séparer clairement <strong>&lt;head&gt;</strong> et <strong>&lt;body&gt;</strong>.</li>
+  <li>Toujours commencer par <strong>&lt;!DOCTYPE html&gt;</strong>.</li>
+  <li>Toujours ajouter <strong>lang="fr"</strong>.</li>
+  <li>Indenter le code pour le rendre lisible.</li>
+  <li>Commenter les parties complexes avec <code>&lt;!-- commentaire --&gt;</code>.</li>
 </ul>
 
 </body>

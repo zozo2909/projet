@@ -1,29 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leçon 7 : Les formulaires</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 7 : Les formulaires</h1>
-
-<p>Les formulaires permettent aux utilisateurs de fournir des informations (nom, email, etc.).</p>
-
-<h2>Exemple de formulaire simple</h2>
-<pre>
-&lt;form&gt;
-&lt;label&gt;Nom :&lt;/label&gt;
-&lt;input type="text" name="nom"&gt;
-&lt;label&gt;Email :&lt;/label&gt;
-&lt;input type="email" name="email"&gt;
-&lt;button type="submit"&gt;Envoyer&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-
-<p>Explications :</p>
+<h1>Les formulaires</h1>
+<p>Un formulaire est créé avec <strong>&lt;form&gt;</strong>. Ses attributs définissent comment les données sont envoyées.</p>
+<pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"traitement.php"</span> <span class="attr">method</span>=<span class="val">"POST"</span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- champs --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Envoyer<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
 <ul>
-<li>&lt;input type="text"&gt; : champ pour écrire du texte</li>
-<li>&lt;input type="email"&gt; : champ pour écrire un email</li>
-<li>&lt;button type="submit"&gt; : bouton pour envoyer les données</li>
+  <li><strong>action</strong> — URL qui reçoit les données.</li>
+  <li><strong>method="GET"</strong> — Données visibles dans l'URL (recherches).</li>
+  <li><strong>method="POST"</strong> — Données cachées, pour les infos sensibles.</li>
+</ul>
+
+<h2>Les types de champs &lt;input&gt;</h2>
+<table>
+  <tr><th>type</th><th>Rendu</th><th>Utilisation</th></tr>
+  <tr><td>text</td><td>Champ texte libre</td><td>Nom, prénom</td></tr>
+  <tr><td>email</td><td>Champ email vérifié</td><td>Adresse e-mail</td></tr>
+  <tr><td>password</td><td>Texte masqué (•••)</td><td>Mot de passe</td></tr>
+  <tr><td>number</td><td>Champ numérique</td><td>Âge, quantité</td></tr>
+  <tr><td>tel</td><td>Champ téléphone</td><td>Numéro de téléphone</td></tr>
+  <tr><td>date</td><td>Sélecteur de date</td><td>Date de naissance</td></tr>
+  <tr><td>checkbox</td><td>Case à cocher</td><td>Accepter CGU</td></tr>
+  <tr><td>radio</td><td>Bouton radio</td><td>Choix unique</td></tr>
+  <tr><td>file</td><td>Upload de fichier</td><td>Photo, document</td></tr>
+  <tr><td>hidden</td><td>Invisible</td><td>Données techniques</td></tr>
+</table>
+
+<h2>Exemple de formulaire de contact</h2>
+<pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"contact.php"</span> <span class="attr">method</span>=<span class="val">"POST"</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"nom"</span><span class="tag">&gt;</span>Nom :<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"nom"</span> <span class="attr">name</span>=<span class="val">"nom"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"email"</span><span class="tag">&gt;</span>Email :<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"email"</span> <span class="attr">name</span>=<span class="val">"email"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"message"</span><span class="tag">&gt;</span>Message :<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;textarea</span> <span class="attr">id</span>=<span class="val">"message"</span> <span class="attr">name</span>=<span class="val">"message"</span> <span class="attr">rows</span>=<span class="val">"5"</span><span class="tag">&gt;&lt;/textarea&gt;</span>
+
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span> <span class="attr">id</span>=<span class="val">"cgu"</span> <span class="attr">name</span>=<span class="val">"cgu"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"cgu"</span><span class="tag">&gt;</span>J'accepte les conditions<span class="tag">&lt;/label&gt;</span>
+
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Envoyer<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+
+<h2>Attributs importants des champs</h2>
+<ul>
+  <li><strong>name</strong> — Identifiant côté serveur. Indispensable pour la transmission des données.</li>
+  <li><strong>id</strong> — Pour lier le champ à son &lt;label&gt; via <code>for</code>.</li>
+  <li><strong>placeholder</strong> — Texte indicatif quand le champ est vide.</li>
+  <li><strong>required</strong> — Champ obligatoire, le navigateur bloque l'envoi si vide.</li>
+  <li><strong>disabled</strong> — Désactive le champ.</li>
+  <li><strong>maxlength</strong> — Nombre maximum de caractères.</li>
+</ul>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li>Toujours utiliser <strong>POST</strong> pour les données sensibles.</li>
+  <li>Toujours associer chaque <strong>&lt;label&gt;</strong> à son champ.</li>
+  <li>Ne jamais faire confiance à la validation HTML seule — valider côté serveur.</li>
 </ul>
 
 </body>

@@ -1,26 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Leçon 9 : Navigation entre les pages</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leçon 9 : Navigation</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 9 : Navigation entre les pages</h1>
+<h1>Navigation entre les pages</h1>
+<p>Un site web est un ensemble de fichiers HTML reliés entre eux. La page d'accueil s'appelle toujours <strong>index.html</strong>.</p>
 
-<p>Un site est souvent composé de plusieurs pages reliées entre elles par des liens.</p>
+<h2>Structure d'un site multi-pages</h2>
+<pre>mon-site/
+├── index.html       ← Page d'accueil
+├── contact.html
+├── apropos.html
+├── images/
+└── css/</pre>
 
-<h2>Exemple de menu de navigation</h2>
-<pre>
-&lt;nav&gt;
-&lt;a href="index.html"&gt;Accueil&lt;/a&gt;
-&lt;a href="contact.html"&gt;Contact&lt;/a&gt;
-&lt;a href="about.html"&gt;À propos&lt;/a&gt;
-&lt;/nav&gt;
-</pre>
+<h2>La balise &lt;nav&gt;</h2>
+<p>La balise <strong>&lt;nav&gt;</strong> indique au navigateur et aux lecteurs d'écran que son contenu est un menu de navigation.</p>
+<pre><span class="tag">&lt;nav&gt;</span>
+  <span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"index.html"</span><span class="tag">&gt;</span>Accueil<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"apropos.html"</span><span class="tag">&gt;</span>À propos<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"contact.html"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></pre>
 
-<p>Explications :</p>
+<div class="info"> La structure recommandée est <strong>&lt;nav&gt; → &lt;ul&gt; → &lt;li&gt; → &lt;a&gt;</strong>. Un menu est sémantiquement une liste de liens.</div>
+
+<h2>Indiquer la page courante</h2>
+<pre><span class="comment">&lt;!-- Via une classe CSS --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"index.html"</span> <span class="attr">class</span>=<span class="val">"active"</span><span class="tag">&gt;</span>Accueil<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Via aria-current (accessibilité) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"index.html"</span> <span class="attr">aria-current</span>=<span class="val">"page"</span><span class="tag">&gt;</span>Accueil<span class="tag">&lt;/a&gt;</span></pre>
+
+<h2>Navigation intra-page (ancres)</h2>
+<pre><span class="comment">&lt;!-- Sommaire --&gt;</span>
+<span class="tag">&lt;nav&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#introduction"</span><span class="tag">&gt;</span>Introduction<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#conclusion"</span><span class="tag">&gt;</span>Conclusion<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;/nav&gt;</span>
+
+<span class="comment">&lt;!-- Sections cibles --&gt;</span>
+<span class="tag">&lt;section</span> <span class="attr">id</span>=<span class="val">"introduction"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>Introduction<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;/section&gt;</span></pre>
+
+<h2>Fil d'Ariane (breadcrumb)</h2>
+<pre><span class="tag">&lt;nav</span> <span class="attr">aria-label</span>=<span class="val">"Fil d'Ariane"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;ol&gt;</span>
+    <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"/"</span><span class="tag">&gt;</span>Accueil<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"/blog"</span><span class="tag">&gt;</span>Blog<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;li</span> <span class="attr">aria-current</span>=<span class="val">"page"</span><span class="tag">&gt;</span>Article du jour<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;/ol&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></pre>
+
+<h2>Bonnes pratiques</h2>
 <ul>
-<li><strong>index.html</strong> : page principale</li>
-<li>Les liens permettent de naviguer facilement entre les pages.</li>
+  <li>Toujours nommer la page d'accueil <strong>index.html</strong>.</li>
+  <li>Utiliser des chemins relatifs pour les liens internes.</li>
+  <li>Indiquer la page courante avec <strong>aria-current="page"</strong>.</li>
+  <li>La navigation doit être cohérente sur toutes les pages.</li>
 </ul>
 
 </body>

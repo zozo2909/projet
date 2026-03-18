@@ -1,42 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leçon 5 : Les listes</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 5 : Les listes</h1>
+<h1>Les listes</h1>
+<p>HTML propose 4 types de listes pour organiser des éléments de manière claire.</p>
 
-<p>Les listes permettent de présenter plusieurs éléments de manière claire.</p>
+<h2>Liste à puces — &lt;ul&gt;</h2>
+<p>Utilisée quand l'ordre n'a pas d'importance.</p>
+<pre><span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Pomme<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Banane<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Orange<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
 
-<h2>Liste à puces (non ordonnée)</h2>
-<pre>
-&lt;ul&gt;
-&lt;li&gt;Pomme&lt;/li&gt;
-&lt;li&gt;Banane&lt;/li&gt;
-&lt;li&gt;Orange&lt;/li&gt;
-&lt;/ul&gt;
-</pre>
+<h2>Liste numérotée — &lt;ol&gt;</h2>
+<p>Utilisée pour des étapes, un classement, une procédure.</p>
+<pre><span class="tag">&lt;ol&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Préparer les ingrédients<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Mélanger<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Cuire 20 min<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
 
-<h2>Liste numérotée (ordonnée)</h2>
-<pre>
-&lt;ol&gt;
-&lt;li&gt;Étape 1 : Préparer&lt;/li&gt;
-&lt;li&gt;Étape 2 : Mélanger&lt;/li&gt;
-&lt;li&gt;Étape 3 : Cuire&lt;/li&gt;
-&lt;/ol&gt;
-</pre>
+<span class="comment">&lt;!-- Options de numérotation --&gt;</span>
+<span class="tag">&lt;ol</span> <span class="attr">start</span>=<span class="val">"5"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/ol&gt;</span>           <span class="comment">&lt;!-- commence à 5 --&gt;</span>
+<span class="tag">&lt;ol</span> <span class="attr">reversed</span><span class="tag">&gt;</span>...<span class="tag">&lt;/ol&gt;</span>         <span class="comment">&lt;!-- numérotation inversée --&gt;</span>
+<span class="tag">&lt;ol</span> <span class="attr">type</span>=<span class="val">"A"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/ol&gt;</span>          <span class="comment">&lt;!-- A, B, C... --&gt;</span></pre>
 
 <h2>Listes imbriquées</h2>
-<pre>
-&lt;ul&gt;
-&lt;li&gt;Fruits
-  &lt;ul&gt;
-    &lt;li&gt;Pomme&lt;/li&gt;
-    &lt;li&gt;Banane&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</pre>
+<pre><span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Fruits
+    <span class="tag">&lt;ul&gt;</span>
+      <span class="tag">&lt;li&gt;</span>Pomme<span class="tag">&lt;/li&gt;</span>
+      <span class="tag">&lt;li&gt;</span>Banane<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;/ul&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Légumes<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
+
+<h2>Liste de définitions — &lt;dl&gt;</h2>
+<p>Paires terme/définition. Utile pour des glossaires.</p>
+<pre><span class="tag">&lt;dl&gt;</span>
+  <span class="tag">&lt;dt&gt;</span>HTML<span class="tag">&lt;/dt&gt;</span>
+  <span class="tag">&lt;dd&gt;</span>Langage de structuration du web.<span class="tag">&lt;/dd&gt;</span>
+  <span class="tag">&lt;dt&gt;</span>CSS<span class="tag">&lt;/dt&gt;</span>
+  <span class="tag">&lt;dd&gt;</span>Langage de mise en forme.<span class="tag">&lt;/dd&gt;</span>
+<span class="tag">&lt;/dl&gt;</span></pre>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li>Choisir le bon type : <strong>&lt;ul&gt;</strong> si l'ordre n'importe pas, <strong>&lt;ol&gt;</strong> pour des étapes.</li>
+  <li>Ne mettre que des <strong>&lt;li&gt;</strong> comme enfants directs de &lt;ul&gt; et &lt;ol&gt;.</li>
+  <li>Les menus de navigation sont des <strong>&lt;ul&gt;</strong> contenant des liens.</li>
+</ul>
 
 </body>
 </html>

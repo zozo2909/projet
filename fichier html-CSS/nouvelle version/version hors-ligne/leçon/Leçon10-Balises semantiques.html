@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leçon 10 : Balises sémantiques</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
+</head>
+<body>
+<h1>Balises sémantiques</h1>
+<p>Une balise sémantique <strong>décrit le sens de son contenu</strong>, pas seulement sa forme. C'est important pour Google, les lecteurs d'écran, et la lisibilité du code.</p>
+
+<h2>Sans sémantique vs avec sémantique</h2>
+<pre><span class="comment">&lt;!--  Sans sémantique --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"header"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"nav"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"content"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"footer"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!--  Avec sémantique --&gt;</span>
+<span class="tag">&lt;header&gt;</span>...<span class="tag">&lt;/header&gt;</span>
+<span class="tag">&lt;nav&gt;</span>...<span class="tag">&lt;/nav&gt;</span>
+<span class="tag">&lt;main&gt;</span>...<span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;footer&gt;</span>...<span class="tag">&lt;/footer&gt;</span></pre>
+
+<h2>Structure complète d'une page</h2>
+<pre><span class="tag">&lt;body&gt;</span>
+
+  <span class="tag">&lt;header&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Mon site<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+
+  <span class="tag">&lt;nav&gt;</span>
+    <span class="tag">&lt;ul&gt;</span>
+      <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"index.html"</span><span class="tag">&gt;</span>Accueil<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;/ul&gt;</span>
+  <span class="tag">&lt;/nav&gt;</span>
+
+  <span class="tag">&lt;main&gt;</span>
+    <span class="tag">&lt;article&gt;</span>
+      <span class="tag">&lt;h2&gt;</span>Titre de l'article<span class="tag">&lt;/h2&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu...<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/article&gt;</span>
+    <span class="tag">&lt;aside&gt;</span>
+      <span class="tag">&lt;h2&gt;</span>Articles liés<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;/aside&gt;</span>
+  <span class="tag">&lt;/main&gt;</span>
+
+  <span class="tag">&lt;footer&gt;</span>
+    <span class="tag">&lt;p&gt;</span>© 2026 Mon Site<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/footer&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span></pre>
+
+<h2>Toutes les balises sémantiques</h2>
+<table>
+  <tr><th>Balise</th><th>Rôle</th></tr>
+  <tr><td>&lt;header&gt;</td><td>En-tête de page ou de section</td></tr>
+  <tr><td>&lt;footer&gt;</td><td>Pied de page ou de section</td></tr>
+  <tr><td>&lt;nav&gt;</td><td>Menu de navigation</td></tr>
+  <tr><td>&lt;main&gt;</td><td>Contenu principal (unique par page)</td></tr>
+  <tr><td>&lt;article&gt;</td><td>Contenu autonome et réutilisable</td></tr>
+  <tr><td>&lt;section&gt;</td><td>Section thématique avec un titre</td></tr>
+  <tr><td>&lt;aside&gt;</td><td>Contenu secondaire, sidebar</td></tr>
+  <tr><td>&lt;figure&gt;</td><td>Illustration avec légende</td></tr>
+  <tr><td>&lt;time&gt;</td><td>Date ou heure</td></tr>
+  <tr><td>&lt;address&gt;</td><td>Coordonnées de l'auteur</td></tr>
+</table>
+
+<h2>article vs section</h2>
+<ul>
+  <li><strong>&lt;article&gt;</strong> — Contenu autonome qui aurait du sens tout seul (article de blog, critique, fiche produit).</li>
+  <li><strong>&lt;section&gt;</strong> — Regroupement thématique d'un contenu qui fait partie d'un ensemble plus grand.</li>
+</ul>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li>Toujours préférer une balise sémantique à un <strong>&lt;div&gt;</strong> générique.</li>
+  <li><strong>&lt;main&gt;</strong> est unique — une seule fois par page.</li>
+  <li>Chaque <strong>&lt;section&gt;</strong> doit avoir un titre.</li>
+  <li>Utiliser <strong>&lt;time datetime="YYYY-MM-DD"&gt;</strong> pour toutes les dates.</li>
+</ul>
+
+<p style="margin-top:40px;padding:20px;background:#f8f8f8;text-align:center;font-size:1.1rem"> Félicitations — cours HTML terminé (10/10) !</p>
+
+</body>
+</html>

@@ -1,23 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leçon 8 : Les attributs HTML</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 8 : Les attributs HTML</h1>
+<h1>Les attributs HTML</h1>
+<p>Un attribut se place dans la balise ouvrante et donne des informations supplémentaires à l'élément.</p>
+<pre><span class="tag">&lt;balise</span> <span class="attr">nom</span>=<span class="val">"valeur"</span><span class="tag">&gt;</span>Contenu<span class="tag">&lt;/balise&gt;</span>
 
-<p>Les attributs donnent des informations supplémentaires aux balises.</p>
+<span class="comment">&lt;!-- Exemple --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://exemple.com"</span> <span class="attr">target</span>=<span class="val">"_blank"</span><span class="tag">&gt;</span>Lien<span class="tag">&lt;/a&gt;</span>
 
-<h2>Exemple</h2>
-<pre>
-&lt;p id="intro" class="important"&gt;Bonjour !&lt;/p&gt;
-</pre>
+<span class="comment">&lt;!-- Attributs booléens (sans valeur) --&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">required</span> <span class="attr">disabled</span><span class="tag">&gt;</span></pre>
 
-<p>Explications :</p>
+<h2>Les attributs universels</h2>
+<table>
+  <tr><th>Attribut</th><th>Rôle</th><th>Exemple</th></tr>
+  <tr><td>id</td><td>Identifiant unique sur la page</td><td>id="titre-principal"</td></tr>
+  <tr><td>class</td><td>Classe CSS, réutilisable sur plusieurs éléments</td><td>class="card active"</td></tr>
+  <tr><td>style</td><td>CSS en ligne directement sur l'élément</td><td>style="color:red"</td></tr>
+  <tr><td>title</td><td>Info-bulle au survol</td><td>title="En savoir plus"</td></tr>
+  <tr><td>lang</td><td>Langue du contenu</td><td>lang="en"</td></tr>
+  <tr><td>hidden</td><td>Cache l'élément (booléen)</td><td>hidden</td></tr>
+  <tr><td>data-*</td><td>Données personnalisées</td><td>data-id="42"</td></tr>
+</table>
+
+<h2>id vs class</h2>
+<pre><span class="comment">&lt;!-- id : unique, une seule fois par page --&gt;</span>
+<span class="tag">&lt;h1</span> <span class="attr">id</span>=<span class="val">"titre-principal"</span><span class="tag">&gt;</span>Mon site<span class="tag">&lt;/h1&gt;</span>
+
+<span class="comment">&lt;!-- class : réutilisable sur plusieurs éléments --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"carte"</span><span class="tag">&gt;</span>Carte 1<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"carte"</span><span class="tag">&gt;</span>Carte 2<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Plusieurs classes sur un élément --&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primaire grand"</span><span class="tag">&gt;</span>Valider<span class="tag">&lt;/button&gt;</span></pre>
+
+<h2>Les attributs data-*</h2>
+<p>Permettent de stocker des données personnalisées dans le HTML, lisibles par JavaScript.</p>
+<pre><span class="tag">&lt;button</span> <span class="attr">data-action</span>=<span class="val">"supprimer"</span> <span class="attr">data-id</span>=<span class="val">"42"</span><span class="tag">&gt;</span>Supprimer<span class="tag">&lt;/button&gt;</span>
+
+<span class="comment">// Lecture en JavaScript :</span>
+<span class="comment">// element.dataset.id      → "42"</span>
+<span class="comment">// element.dataset.action  → "supprimer"</span></pre>
+
+<h2>Les attributs ARIA</h2>
+<p>Améliorent l'accessibilité pour les lecteurs d'écran.</p>
 <ul>
-<li><strong>id</strong> : identifiant unique pour un élément</li>
-<li><strong>class</strong> : groupe d’éléments similaires</li>
-<li>D’autres attributs : <strong>src</strong>, <strong>href</strong>, <strong>alt</strong>, <strong>name</strong>, <strong>type</strong></li>
+  <li><strong>aria-label</strong> — Nom accessible pour un élément sans texte visible.</li>
+  <li><strong>aria-hidden="true"</strong> — Cache l'élément aux technologies d'assistance.</li>
+  <li><strong>aria-expanded</strong> — Indique si un menu est ouvert ou fermé.</li>
+</ul>
+<pre><span class="comment">&lt;!-- Bouton avec seulement une icône --&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">aria-label</span>=<span class="val">"Fermer la fenêtre"</span><span class="tag">&gt;</span><span class="tag">&lt;/button&gt;</span></pre>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li><strong>id</strong> est unique — ne jamais l'utiliser deux fois.</li>
+  <li>Éviter le style en ligne — préférer les classes CSS.</li>
+  <li>Nommer les attributs de façon descriptive.</li>
+  <li>Toujours mettre les valeurs entre guillemets.</li>
 </ul>
 
 </body>

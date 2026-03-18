@@ -1,35 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leçon 3 : Les liens</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 3 : Les liens</h1>
+<h1>Les liens hypertexte</h1>
+<p>Un lien est créé avec la balise <strong>&lt;a&gt;</strong> (anchor). L'attribut <strong>href</strong> contient la destination.</p>
+<pre><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"destination"</span><span class="tag">&gt;</span>Texte cliquable<span class="tag">&lt;/a&gt;</span></pre>
 
-<p>Les liens (<strong>&lt;a&gt;</strong>) permettent de naviguer entre les pages d’un site ou vers d’autres sites web.</p>
+<h2>Les 4 types de liens</h2>
+<pre><span class="comment">&lt;!-- Lien interne (autre page du site) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"contact.html"</span><span class="tag">&gt;</span>Page Contact<span class="tag">&lt;/a&gt;</span>
 
-<h2>Lien interne</h2>
-<p>Vers une autre page du site :</p>
-<pre>
-&lt;a href="contact.html"&gt;Page Contact&lt;/a&gt;
-</pre>
+<span class="comment">&lt;!-- Lien externe (autre site) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://wikipedia.org"</span><span class="tag">&gt;</span>Wikipedia<span class="tag">&lt;/a&gt;</span>
 
-<h2>Lien externe</h2>
-<p>Vers un autre site :</p>
-<pre>
-&lt;a href="https://wikipedia.org"&gt;Wikipedia&lt;/a&gt;
-</pre>
+<span class="comment">&lt;!-- Lien ancre (section de la même page) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#section-contact"</span><span class="tag">&gt;</span>Aller au contact<span class="tag">&lt;/a&gt;</span>
 
-<h2>Lien ouvrant dans un nouvel onglet</h2>
-<pre>
-&lt;a href="https://wikipedia.org" target="_blank"&gt;Wikipedia&lt;/a&gt;
-</pre>
+<span class="comment">&lt;!-- Lien email --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"mailto:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8be8e4e5ffeae8ffcbe6e4e5f8e2ffeea5edf9">[email&#160;protected]</a>"</span><span class="tag">&gt;</span>Nous écrire<span class="tag">&lt;/a&gt;</span>
 
-<p>Explication :</p>
+<span class="comment">&lt;!-- Lien téléphone (mobile) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"tel:+33612345678"</span><span class="tag">&gt;</span>06 12 34 56 78<span class="tag">&lt;/a&gt;</span></pre>
+
+<h2>Les attributs de &lt;a&gt;</h2>
+<table>
+  <tr><th>Attribut</th><th>Valeurs</th><th>Description</th></tr>
+  <tr><td>href</td><td>URL, chemin, #id, mailto:</td><td>Destination du lien</td></tr>
+  <tr><td>target</td><td>_blank, _self</td><td>_blank = nouvel onglet</td></tr>
+  <tr><td>rel</td><td>noopener, noreferrer</td><td>Sécurité avec target="_blank"</td></tr>
+  <tr><td>title</td><td>Texte</td><td>Info-bulle au survol</td></tr>
+  <tr><td>download</td><td>nom-fichier</td><td>Force le téléchargement</td></tr>
+</table>
+
+<pre><span class="comment">&lt;!-- Ouvrir dans un nouvel onglet — TOUJOURS ajouter rel --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://exemple.com"</span>
+   <span class="attr">target</span>=<span class="val">"_blank"</span>
+   <span class="attr">rel</span>=<span class="val">"noopener noreferrer"</span><span class="tag">&gt;</span>Visiter<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Téléchargement --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"guide.pdf"</span> <span class="attr">download</span>=<span class="val">"guide-html.pdf"</span><span class="tag">&gt;</span>Télécharger<span class="tag">&lt;/a&gt;</span></pre>
+
+<div class="info"> Avec <code>target="_blank"</code>, toujours ajouter <code>rel="noopener noreferrer"</code>. Sans ça, la page ouverte peut accéder à votre page via JavaScript.</div>
+
+<h2>Chemins relatifs vs absolus</h2>
+<pre><span class="comment">&lt;!-- Même dossier --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"contact.html"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Sous-dossier --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"pages/contact.html"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;</span></pre>
+
+<h2>Bonnes pratiques</h2>
 <ul>
-<li><strong>href</strong> : indique l’adresse du lien.</li>
-<li><strong>target="_blank"</strong> : ouvre le lien dans un nouvel onglet.</li>
+  <li>Toujours ajouter <strong>rel="noopener noreferrer"</strong> avec <code>target="_blank"</code>.</li>
+  <li>Le texte du lien doit être descriptif — éviter "cliquez ici".</li>
+  <li>Utiliser des chemins relatifs pour les liens internes.</li>
 </ul>
 
-</body>
-</html>
+<footer class="lesso

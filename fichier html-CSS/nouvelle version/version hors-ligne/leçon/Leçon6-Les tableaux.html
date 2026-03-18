@@ -1,37 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leçon 6 : Les tableaux</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #fff; color: #222; line-height: 1.7; font-size: 16px; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2rem; margin-bottom: 6px; }
+h2 { font-size: 1.3rem; margin: 40px 0 12px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+h3 { font-size: 1rem; margin: 20px 0 8px; }
+p { margin-bottom: 12px; color: #444; }
+strong { color: #111; }
+ul, ol { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 6px; color: #444; }
+pre { background: #111; color: #eee; padding: 20px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.7; margin: 16px 0; font-family: monospace; }
+.tag { color: #7ec8e3; }
+.attr { color: #ffd7a8; }
+.val { color: #b5ead7; }
+.comment { color: #888; font-style: italic; }
+.info { background: #f8f8f8; border-left: 3px solid #222; padding: 12px 16px; margin: 16px 0; color: #444; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: #222; color: #fff; padding: 10px 14px; text-align: left; }
+td { padding: 10px 14px; border-bottom: 1px solid #eee; color: #444; }
+nav.lesson-nav { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #eee; font-size: 13px; font-family: monospace; }
+nav.lesson-nav a { color: #222; text-decoration: none; margin-right: 8px; padding: 4px 8px; border: 1px solid #ddd; }
+nav.lesson-nav a.active { background: #222; color: #fff; border-color: #222; }
+nav.lesson-nav a:hover { background: #f0f0f0; }
+footer.lesson-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; display: flex; justify-content: space-between; font-size: 13px; font-family: monospace; }
+footer.lesson-footer a { color: #222; text-decoration: none; padding: 6px 12px; border: 1px solid #ddd; }
+footer.lesson-footer a:hover { background: #f0f0f0; }
+.lesson-tag { font-family: monospace; font-size: 12px; color: #999; letter-spacing: 2px; display: block; margin-bottom: 4px; }</style>
 </head>
 <body>
-<h1>Leçon 6 : Les tableaux</h1>
+<h1>Les tableaux</h1>
+<p>Les tableaux organisent des données en lignes et colonnes. Ils sont réservés aux <strong>données tabulaires</strong>, jamais à la mise en page.</p>
 
-<p>Les tableaux permettent d’organiser les informations en lignes et colonnes.</p>
-
-<h2>Exemple de tableau</h2>
-<pre>
-&lt;table border="1"&gt;
-&lt;tr&gt;
-&lt;th&gt;Nom&lt;/th&gt;
-&lt;th&gt;Âge&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Lucas&lt;/td&gt;
-&lt;td&gt;18&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Emma&lt;/td&gt;
-&lt;td&gt;17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-</pre>
-
-<p>Explications :</p>
+<h2>Les balises d'un tableau</h2>
 <ul>
-<li>&lt;table&gt; : crée le tableau</li>
-<li>&lt;tr&gt; : ligne</li>
-<li>&lt;th&gt; : titre de colonne</li>
-<li>&lt;td&gt; : cellule normale</li>
+  <li><strong>&lt;table&gt;</strong> — Conteneur principal.</li>
+  <li><strong>&lt;caption&gt;</strong> — Titre du tableau, important pour l'accessibilité.</li>
+  <li><strong>&lt;thead&gt;</strong> — En-tête du tableau.</li>
+  <li><strong>&lt;tbody&gt;</strong> — Corps du tableau (données).</li>
+  <li><strong>&lt;tfoot&gt;</strong> — Pied de tableau (totaux, récapitulatifs).</li>
+  <li><strong>&lt;tr&gt;</strong> — Une ligne.</li>
+  <li><strong>&lt;th&gt;</strong> — Cellule d'en-tête (gras, centré par défaut).</li>
+  <li><strong>&lt;td&gt;</strong> — Cellule de données.</li>
+</ul>
+
+<h2>Exemple complet</h2>
+<pre><span class="tag">&lt;table&gt;</span>
+  <span class="tag">&lt;caption&gt;</span>Résultats scolaires<span class="tag">&lt;/caption&gt;</span>
+  <span class="tag">&lt;thead&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;th&gt;</span>Matière<span class="tag">&lt;/th&gt;</span>
+      <span class="tag">&lt;th&gt;</span>Note /20<span class="tag">&lt;/th&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/thead&gt;</span>
+  <span class="tag">&lt;tbody&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;td&gt;</span>Mathématiques<span class="tag">&lt;/td&gt;</span>
+      <span class="tag">&lt;td&gt;</span>16<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;td&gt;</span>Informatique<span class="tag">&lt;/td&gt;</span>
+      <span class="tag">&lt;td&gt;</span>19<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/tbody&gt;</span>
+  <span class="tag">&lt;tfoot&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;td&gt;</span>Moyenne<span class="tag">&lt;/td&gt;</span>
+      <span class="tag">&lt;td&gt;</span>17.5<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/tfoot&gt;</span>
+<span class="tag">&lt;/table&gt;</span></pre>
+
+<h2>Fusionner des cellules</h2>
+<table>
+  <tr><th>Attribut</th><th>Rôle</th><th>Exemple</th></tr>
+  <tr><td>colspan</td><td>Fusionner des colonnes</td><td>colspan="2" = 2 colonnes</td></tr>
+  <tr><td>rowspan</td><td>Fusionner des lignes</td><td>rowspan="3" = 3 lignes</td></tr>
+</table>
+<pre><span class="tag">&lt;tr&gt;</span>
+  <span class="tag">&lt;th</span> <span class="attr">colspan</span>=<span class="val">"2"</span><span class="tag">&gt;</span>Titre sur 2 colonnes<span class="tag">&lt;/th&gt;</span>
+<span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;tr&gt;</span>
+  <span class="tag">&lt;td</span> <span class="attr">rowspan</span>=<span class="val">"2"</span><span class="tag">&gt;</span>Cellule sur 2 lignes<span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;td&gt;</span>Normal<span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;/tr&gt;</span></pre>
+
+<div class="info"> Quand vous fusionnez des cellules, retirez les &lt;td&gt; correspondants des lignes suivantes.</div>
+
+<h2>Bonnes pratiques</h2>
+<ul>
+  <li>Les tableaux sont pour les données tabulaires uniquement — jamais pour la mise en page.</li>
+  <li>Toujours ajouter <strong>&lt;caption&gt;</strong> et des <strong>&lt;th&gt;</strong> pour l'accessibilité.</li>
+  <li>Utiliser <strong>&lt;thead&gt;</strong>, <strong>&lt;tbody&gt;</strong>, <strong>&lt;tfoot&gt;</strong> pour structurer sémantiquement.</li>
 </ul>
 
 </body>
